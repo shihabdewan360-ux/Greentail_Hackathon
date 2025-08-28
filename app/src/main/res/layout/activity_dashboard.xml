@@ -16,10 +16,10 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="60dp">
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="30dp">
 
             <ImageButton
                 android:id="@+id/backButton"
@@ -44,10 +44,10 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="20dp">
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profileImage"
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsmedium"
             android:text="Statistics"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="10dp"
             android:textSize="15sp"
             android:textStyle="bold"
             android:textColor="#1B4332"
@@ -103,8 +103,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="24dp">
 
             <LinearLayout
@@ -208,7 +208,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsmedium"
             android:textColor="#1B4332"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="10dp"
             android:text="Carbon History"
             android:textSize="15sp"
             android:textStyle="bold"
@@ -222,8 +222,8 @@
             android:layout_marginTop="20dp"
             android:background="@android:color/transparent"
             android:gravity="bottom"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:paddingBottom="24dp"
             android:layout_marginBottom="8dp">
 
@@ -394,13 +394,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
+            android:layout_marginLeft="65dp"
+            android:layout_marginRight="0dp"
             android:layout_marginTop="-30dp">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:text="Home"
                 android:textAlignment="center"
@@ -409,7 +410,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="0dp"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:text="Travel"
                 android:textAlignment="center"
@@ -418,7 +419,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="0dp"
+                android:layout_marginLeft="17dp"
                 android:layout_weight="1"
                 android:text="Food"
                 android:textAlignment="center"
@@ -427,7 +428,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="0dp"
+                android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:text="Others"
                 android:textAlignment="center"

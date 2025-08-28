@@ -228,7 +228,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="-20dp"
-                        android:layout_marginLeft="60dp"
+                        android:layout_marginLeft="35dp"
                         android:text="Recently added"
                         android:textColor="#1B4332"
                         android:textSize="13sp"
@@ -258,8 +258,8 @@
                                 android:layout_height="230dp"
                                 android:layout_marginTop="35dp"
                                 android:layout_marginBottom="35dp"
-                                android:layout_marginStart="60dp"
-                                android:layout_marginEnd="60dp"
+                                android:layout_marginStart="35dp"
+                                android:layout_marginEnd="35dp"
                                 app:cardBackgroundColor="#FFFFFF"
                                 app:cardCornerRadius="20dp"
                                 app:strokeColor="#000000">
@@ -440,8 +440,8 @@
                                 android:layout_height="230dp"
                                 android:layout_marginTop="35dp"
                                 android:layout_marginBottom="35dp"
-                                android:layout_marginStart="60dp"
-                                android:layout_marginEnd="60dp"
+                                android:layout_marginStart="35dp"
+                                android:layout_marginEnd="35dp"
                                 app:cardBackgroundColor="#FFFFFF"
                                 app:cardCornerRadius="20dp"
                                 app:strokeColor="#000000">
@@ -470,7 +470,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="20dp"
-                                            android:layout_marginTop="30dp"
+                                            android:layout_marginTop="25dp"
                                             android:layout_marginBottom="0dp"
                                             android:fontFamily="@font/poppinsmedium"
                                             android:text="Walk for short distances"
@@ -481,7 +481,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="20dp"
-                                            android:layout_marginTop="10dp"
+                                            android:layout_marginTop="5dp"
                                             android:layout_marginBottom="0dp"
                                             android:fontFamily="@font/poppinslight"
                                             android:text="Choosing to walk instead \nof drive for under 3km \ncan save ~0.4kg of CO₂ \nper trip."
@@ -565,7 +565,7 @@
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginEnd="20dp"
-                                                android:layout_marginBottom="10dp"
+                                                android:layout_marginBottom="5dp"
                                                 android:scaleType="centerCrop"
                                                 android:src="@drawable/cardgf" />
 
@@ -652,8 +652,8 @@
                                 android:layout_height="230dp"
                                 android:layout_marginTop="20dp"
                                 android:layout_marginBottom="35dp"
-                                android:layout_marginStart="60dp"
-                                android:layout_marginEnd="60dp"
+                                android:layout_marginStart="35dp"
+                                android:layout_marginEnd="35dp"
                                 app:cardBackgroundColor="#FFFFFF"
                                 app:cardCornerRadius="20dp"
                                 app:strokeColor="#000000">
@@ -682,7 +682,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="20dp"
-                                            android:layout_marginTop="30dp"
+                                            android:layout_marginTop="25dp"
                                             android:layout_marginBottom="0dp"
                                             android:fontFamily="@font/poppinsmedium"
                                             android:text="Drink Tap water instead of bottled"
@@ -693,7 +693,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="20dp"
-                                            android:layout_marginTop="10dp"
+                                            android:layout_marginTop="5dp"
                                             android:layout_marginBottom="0dp"
                                             android:fontFamily="@font/poppinslight"
                                             android:text="Switching to refillable \nwater bottles cuts both /nplastic use and ~200g CO₂ \nper bottle."
@@ -777,7 +777,7 @@
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginEnd="20dp"
-                                                android:layout_marginBottom="10dp"
+                                                android:layout_marginBottom="0dp"
                                                 android:scaleType="centerCrop"
                                                 android:src="@drawable/card2p1" />
 
@@ -836,8 +836,8 @@
                                 android:layout_height="230dp"
                                 android:layout_marginTop="20dp"
                                 android:layout_marginBottom="35dp"
-                                android:layout_marginStart="60dp"
-                                android:layout_marginEnd="60dp"
+                                android:layout_marginStart="35dp"
+                                android:layout_marginEnd="35dp"
                                 app:cardBackgroundColor="#FFFFFF"
                                 app:cardCornerRadius="20dp"
                                 app:strokeColor="#000000">
@@ -866,7 +866,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="20dp"
-                                            android:layout_marginTop="30dp"
+                                            android:layout_marginTop="25dp"
                                             android:layout_marginBottom="0dp"
                                             android:fontFamily="@font/poppinsmedium"
                                             android:text="Take part in a local clean-up"
@@ -877,7 +877,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="20dp"
-                                            android:layout_marginTop="10dp"
+                                            android:layout_marginTop="5dp"
                                             android:layout_marginBottom="0dp"
                                             android:fontFamily="@font/poppinslight"
                                             android:text="Cleaning up your \nneighborhood removes waste \nand builds eco-responsibility \nin the community."
@@ -961,7 +961,7 @@
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginEnd="20dp"
-                                                android:layout_marginBottom="10dp"
+                                                android:layout_marginBottom="0dp"
                                                 android:scaleType="centerCrop"
                                                 android:src="@drawable/gif22" />
 
@@ -1038,8 +1038,8 @@
                                 android:layout_height="230dp"
                                 android:layout_marginTop="20dp"
                                 android:layout_marginBottom="35dp"
-                                android:layout_marginStart="60dp"
-                                android:layout_marginEnd="60dp"
+                                android:layout_marginStart="35dp"
+                                android:layout_marginEnd="35dp"
                                 app:cardBackgroundColor="#FFFFFF"
                                 app:cardCornerRadius="20dp"
                                 app:strokeColor="#000000">
@@ -1068,7 +1068,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="20dp"
-                                            android:layout_marginTop="30dp"
+                                            android:layout_marginTop="25dp"
                                             android:layout_marginBottom="0dp"
                                             android:fontFamily="@font/poppinsmedium"
                                             android:text="Eat more plants this week"
@@ -1079,7 +1079,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="20dp"
-                                            android:layout_marginTop="10dp"
+                                            android:layout_marginTop="5dp"
                                             android:layout_marginBottom="0dp"
                                             android:fontFamily="@font/poppinslight"
                                             android:text="Eating less meat just \ntwice a week helps \nreduce up to 2.4kg of \nCO₂."
@@ -1163,7 +1163,7 @@
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginEnd="20dp"
-                                                android:layout_marginBottom="10dp"
+                                                android:layout_marginBottom="0dp"
                                                 android:scaleType="centerCrop"
                                                 android:src="@drawable/cardgf" />
 
@@ -1221,8 +1221,8 @@
                                 android:layout_height="230dp"
                                 android:layout_marginTop="20dp"
                                 android:layout_marginBottom="35dp"
-                                android:layout_marginStart="60dp"
-                                android:layout_marginEnd="60dp"
+                                android:layout_marginStart="35dp"
+                                android:layout_marginEnd="35dp"
                                 app:cardBackgroundColor="#FFFFFF"
                                 app:cardCornerRadius="20dp"
                                 app:strokeColor="#000000">
@@ -1428,8 +1428,8 @@
                                 android:layout_height="230dp"
                                 android:layout_marginTop="20dp"
                                 android:layout_marginBottom="35dp"
-                                android:layout_marginStart="60dp"
-                                android:layout_marginEnd="60dp"
+                                android:layout_marginStart="35dp"
+                                android:layout_marginEnd="35dp"
                                 app:cardBackgroundColor="#FFFFFF"
                                 app:cardCornerRadius="20dp"
                                 app:strokeColor="#000000">
@@ -1458,7 +1458,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="20dp"
-                                            android:layout_marginTop="30dp"
+                                            android:layout_marginTop="25dp"
                                             android:layout_marginBottom="0dp"
                                             android:fontFamily="@font/poppinsmedium"
                                             android:text="Use energy-saving mode on devices"
@@ -1469,7 +1469,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_marginLeft="20dp"
-                                            android:layout_marginTop="10dp"
+                                            android:layout_marginTop="5dp"
                                             android:layout_marginBottom="0dp"
                                             android:fontFamily="@font/poppinslight"
                                             android:text="Lower screen brightness, \nreduce refresh rates, and \nactivate eco-mode on \nyour laptop or phone."
@@ -1553,7 +1553,7 @@
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginEnd="20dp"
-                                                android:layout_marginBottom="10dp"
+                                                android:layout_marginBottom="0dp"
                                                 android:scaleType="centerCrop"
                                                 android:src="@drawable/card31" />
 
@@ -1609,10 +1609,10 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
                                 android:layout_height="230dp"
-                                android:layout_marginTop="35dp"
+                                android:layout_marginTop="20dp"
                                 android:layout_marginBottom="35dp"
-                                android:layout_marginStart="60dp"
-                                android:layout_marginEnd="60dp"
+                                android:layout_marginStart="35dp"
+                                android:layout_marginEnd="35dp"
                                 app:cardBackgroundColor="#FFFFFF"
                                 app:cardCornerRadius="20dp"
                                 app:strokeColor="#000000">
@@ -1866,6 +1866,7 @@
 
 
             <ImageView
+                android:id="@+id/connect"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
                 android:contentDescription="Connect"
@@ -1880,6 +1881,7 @@
 
             <!-- Reward Icon with background -->
             <ImageView
+                android:id="@+id/reward"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
                 android:background="@drawable/footer_icon_bg"

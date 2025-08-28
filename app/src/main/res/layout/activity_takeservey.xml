@@ -16,10 +16,10 @@
 
         <!-- Image aligned to start -->
         <ImageView
-            android:layout_width="143dp"
-            android:layout_height="143dp"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
             android:src="@drawable/bigfan"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:contentDescription="Survey icon"
             android:layout_gravity="start"
             android:background="@android:color/transparent"
@@ -32,7 +32,7 @@
             android:text="Take the surveys"
             android:fontFamily="@font/times_new_roman"
             android:layout_marginTop="-10dp"
-            android:textSize="32sp"
+            android:textSize="28sp"
             android:textColor="#FFFFFF"
             android:background="@android:color/transparent"
             android:gravity="center"/>
@@ -56,11 +56,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/homeCard"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginTop="26dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="22dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginBottom="26dp"
+                android:layout_marginBottom="22dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="4dp">
 
@@ -120,10 +120,10 @@
             <!-- Travel Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="90dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginBottom="26dp"
+                android:layout_marginBottom="22dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="4dp">
 
@@ -180,10 +180,10 @@
             <!-- Food Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="90dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginBottom="26dp"
+                android:layout_marginBottom="22dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="4dp">
 
@@ -240,10 +240,10 @@
             <!-- Others Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="90dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="22dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="4dp">
 
@@ -309,9 +309,10 @@
             <!-- Action Button -->
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="71dp"
+                android:layout_height="66dp"
                 android:text="Start taking action"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginBottom="40dp"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/button_circle2"
                 android:fontFamily="@font/times_new_roman"
