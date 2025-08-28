@@ -195,7 +195,7 @@
         android:id="@+id/overallValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0.0 tons of CO2e would melt an area \nof arctic sea ice the size of 0 billboards"
+        android:text="  0.0 tons of CO2e would melt an area \nof arctic sea ice the size of 0 billboards \n     The safe bar is 2 tons CO2e/year"
         android:background="@android:color/transparent"
         android:textColor="#1B4332"
         android:textSize="10sp"
