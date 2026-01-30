@@ -1,22 +1,21 @@
 {
   "project_info": {
-    "project_number": "520529149418",
-    "firebase_url": "https://carbonfootprint-bc370-default-rtdb.firebaseio.com",
-    "project_id": "carbonfootprint-bc370",
-    "storage_bucket": "carbonfootprint-bc370.firebasestorage.app"
+    "project_number": "787599600466",
+    "project_id": "greentail-hackathon",
+    "storage_bucket": "greentail-hackathon.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:520529149418:android:ae19824f32c8540d284693",
+        "mobilesdk_app_id": "1:787599600466:android:643e4fe23859e336ea688b",
         "android_client_info": {
-          "package_name": "com.example.carbonfootprint"
+          "package_name": "com.example.greentail_hackathon"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDZ6irDg6JW7IE5jXQhte3sm6b56JQklDg"
+          "current_key": "AIzaSyDzIh2uSWxLFPt1bbo2hgbvvh9k3ICZbFc"
         }
       ],
       "services": {

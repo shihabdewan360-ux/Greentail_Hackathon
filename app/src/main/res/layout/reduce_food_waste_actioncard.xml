@@ -159,11 +159,14 @@
         android:text="I did this !"
         android:textColor="#FFFFFFFF"
         android:textSize="18sp"
+        android:enabled="false"
+        android:alpha="0.5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.548"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/progress_card"
         app:layout_constraintWidth_percent="0.8" />
+
 
     <TextView
         android:id="@+id/habit_tracker"
@@ -184,10 +187,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/horizontalline"
-    android:layout_marginTop="15dp"
-    app:layout_constraintTop_toBottomOf="@id/habit_tracker"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"/>
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/habit_tracker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- SDG Footer -->
 
@@ -238,7 +241,19 @@
             android:layout_marginLeft="15dp" />
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/addActionButton"
+        android:layout_width="68dp"
+        android:layout_height="73dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="90dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Add Action"
 
+        android:elevation="8dp"
+        android:src="@drawable/cameraicon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <LinearLayout
         android:id="@+id/fotter"

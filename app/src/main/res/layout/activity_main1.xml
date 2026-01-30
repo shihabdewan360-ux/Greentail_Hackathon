@@ -38,7 +38,7 @@
                 android:layout_marginLeft="35dp"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/times_new_roman"
-                android:text="It’s your chance to \ntake action, Shihab."
+                android:text="It’s your chance to \ntake action!"
                 android:textColor="#1B4332"
                 android:textSize="32sp"
                 android:textStyle="bold" />
