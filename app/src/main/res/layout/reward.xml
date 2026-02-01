@@ -147,13 +147,12 @@
                 android:textColor="#555"/>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardEcoShop"
+                android:id="@+id/card_banner"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
                 android:layout_marginTop="12dp"
                 app:cardCornerRadius="15dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="@android:color/transparent">
+                app:cardElevation="4dp">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -549,6 +548,7 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:weightSum="7"
+        android:elevation="10dp"
         android:layout_alignParentBottom="true">
 
         <Space
@@ -561,8 +561,8 @@
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:contentDescription="Home"
-            android:gravity="center"
             android:background="@drawable/footer_icon_bg"
+            android:padding="8dp"
             android:src="@drawable/fox" />
 
         <Space
@@ -575,8 +575,8 @@
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:contentDescription="Search"
-            android:gravity="center"
             android:background="@drawable/footer_icon_bg"
+            android:padding="8dp"
             android:src="@drawable/search" />
 
         <Space
@@ -589,8 +589,8 @@
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:contentDescription="Progress"
-            android:gravity="center"
             android:background="@drawable/footer_icon_bg"
+            android:padding="8dp"
             android:src="@drawable/progress" />
 
         <Space
@@ -604,6 +604,7 @@
             android:layout_height="43dp"
             android:contentDescription="Connect"
             android:background="@drawable/footer_icon_bg"
+            android:padding="8dp"
             android:src="@drawable/connect" />
 
         <Space
@@ -616,6 +617,7 @@
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:background="@drawable/footer_icon_bg"
+            android:padding="8dp"
             android:contentDescription="Reward"
             android:src="@drawable/reward" />
 

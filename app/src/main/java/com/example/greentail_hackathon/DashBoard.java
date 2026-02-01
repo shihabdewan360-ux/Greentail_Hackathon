@@ -58,13 +58,10 @@ public class DashBoard extends AppCompatActivity {
         ImageButton backButton = findViewById(R.id.backButton);
         ImageButton settingsButton = findViewById(R.id.settingsButton);
 
-        // Set static username
-        userName.setText("Shihab");
-
         // Set current month/year
         setCurrentDate();
 
-        // Firebase initialization - FIXED: Using Singapore URL and lowercase "users"
+        // Firebase initialization
         userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         databaseRef = FirebaseDatabase.getInstance(DB_URL).getReference("users").child(userId);
 
@@ -72,10 +69,10 @@ public class DashBoard extends AppCompatActivity {
         backButton.setOnClickListener(v -> finish());
         settingsButton.setOnClickListener(v -> openSettings());
 
-        // Load user data with real-time updates
+        // Load user data (Name, Points, Total CO2)
         loadUserData();
 
-        // Load emission data
+        // Load emission data for the chart
         loadEmissionData();
     }
 
@@ -89,11 +86,22 @@ public class DashBoard extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    // Changed to look for total_footprint as saved by Overall.java
+                    // --- DYNAMIC NAME FIX ---
+                    String nameFromDb = dataSnapshot.child("firstName").getValue(String.class);
+                    if (nameFromDb == null) {
+                        nameFromDb = dataSnapshot.child("name").getValue(String.class); // Fallback if you used "name"
+                    }
+
+                    if (nameFromDb != null) {
+                        userName.setText(nameFromDb);
+                    } else {
+                        userName.setText("User"); // Default if nothing is found
+                    }
+
+                    // --- CO2 & POINTS ---
                     Double co2Value = dataSnapshot.child("total_footprint").getValue(Double.class);
                     Integer taliValue = dataSnapshot.child("taliPoints").getValue(Integer.class);
 
-                    // If total_footprint doesn't exist, fall back to totalCO2Saved
                     if (co2Value == null) {
                         co2Value = dataSnapshot.child("totalCO2Saved").getValue(Double.class);
                     }
@@ -111,7 +119,6 @@ public class DashBoard extends AppCompatActivity {
     }
 
     private void loadEmissionData() {
-        // FIXED: Using Singapore URL
         DatabaseReference surveysRef = FirebaseDatabase.getInstance(DB_URL).getReference("surveys");
         categoriesLoaded = 0;
 
@@ -119,9 +126,7 @@ public class DashBoard extends AppCompatActivity {
         surveysRef.child("home").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    homeEmission = getFloatValue(snapshot);
-                }
+                if (snapshot.exists()) homeEmission = getFloatValue(snapshot);
                 checkAllCategoriesLoaded();
             }
             @Override public void onCancelled(@NonNull DatabaseError error) { checkAllCategoriesLoaded(); }
@@ -131,9 +136,7 @@ public class DashBoard extends AppCompatActivity {
         surveysRef.child("travel").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    travelEmission = getFloatValue(snapshot);
-                }
+                if (snapshot.exists()) travelEmission = getFloatValue(snapshot);
                 checkAllCategoriesLoaded();
             }
             @Override public void onCancelled(@NonNull DatabaseError error) { checkAllCategoriesLoaded(); }
@@ -143,9 +146,7 @@ public class DashBoard extends AppCompatActivity {
         surveysRef.child("food").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    foodEmission = getFloatValue(snapshot);
-                }
+                if (snapshot.exists()) foodEmission = getFloatValue(snapshot);
                 checkAllCategoriesLoaded();
             }
             @Override public void onCancelled(@NonNull DatabaseError error) { checkAllCategoriesLoaded(); }
@@ -155,16 +156,13 @@ public class DashBoard extends AppCompatActivity {
         surveysRef.child("others").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    othersEmission = getFloatValue(snapshot);
-                }
+                if (snapshot.exists()) othersEmission = getFloatValue(snapshot);
                 checkAllCategoriesLoaded();
             }
             @Override public void onCancelled(@NonNull DatabaseError error) { checkAllCategoriesLoaded(); }
         });
     }
 
-    // Helper to handle multiple possible field names
     private float getFloatValue(DataSnapshot snapshot) {
         Object val = null;
         if (snapshot.hasChild("annualEmissions")) val = snapshot.child("annualEmissions").getValue();
@@ -185,7 +183,6 @@ public class DashBoard extends AppCompatActivity {
     }
 
     private void updateChart() {
-        // Set bar heights directly based on exact emission values
         setBarHeight(homeBar, homeEmission);
         setBarHeight(travelBar, travelEmission);
         setBarHeight(foodBar, foodEmission);
@@ -194,7 +191,6 @@ public class DashBoard extends AppCompatActivity {
 
     private void setBarHeight(View bar, float tons) {
         float heightDp;
-
         if (tons <= 0.5f) heightDp = BAR_HEIGHT_FOR_0_5_TONS * (tons / 0.5f);
         else if (tons <= 1.0f) heightDp = BAR_HEIGHT_FOR_1_0_TONS * (tons / 1.0f);
         else if (tons <= 1.5f) heightDp = BAR_HEIGHT_FOR_1_5_TONS * (tons / 1.5f);
@@ -205,7 +201,6 @@ public class DashBoard extends AppCompatActivity {
         if (heightDp < 10) heightDp = 10;
         if (heightDp > BAR_HEIGHT_FOR_3_0_TONS) heightDp = BAR_HEIGHT_FOR_3_0_TONS;
 
-        // Convert DP to Pixels for the LayoutParams
         float scale = getResources().getDisplayMetrics().density;
         int heightPx = (int) (heightDp * scale + 0.5f);
 
@@ -214,6 +209,6 @@ public class DashBoard extends AppCompatActivity {
     }
 
     private void openSettings() {
-        // Implement settings activity
+        // Implement settings activity if needed
     }
 }

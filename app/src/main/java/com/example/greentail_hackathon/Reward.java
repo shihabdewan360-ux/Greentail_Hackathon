@@ -7,14 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.cardview.widget.CardView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -29,8 +28,12 @@ import java.util.Map;
 public class Reward extends AppCompatActivity {
 
     private TextView taliPointsTextView;
+    // These must be LinearLayout to match your XML
+    private LinearLayout btnWallet;
+    private LinearLayout btnRedeemPts;
+
     private DatabaseReference databaseRef;
-    private DatabaseReference suggestionsRef; // Reference for suggestions
+    private DatabaseReference suggestionsRef;
     private String userId;
 
     private EditText editSuggestion;
@@ -44,11 +47,48 @@ public class Reward extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.reward);
 
+        // 1. Initialize UI Elements (Matching your exact XML IDs)
         taliPointsTextView = findViewById(R.id.taliPoints);
         editSuggestion = findViewById(R.id.editSuggestion);
         btnSendSuggestion = findViewById(R.id.btnSendSuggestion);
 
-        // Charity Card Navigation
+        // Matching IDs: btnWallet and btnRedeem from your LinearLayout tags
+        btnWallet = findViewById(R.id.btnWallet);
+        btnRedeemPts = findViewById(R.id.btnRedeem);
+
+        // 2. WALLET BUTTON CLICK (Opens PayActivity)
+        if (btnWallet != null) {
+            btnWallet.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Reward.this, PayActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
+
+        // 3. REDEEM BUTTON CLICK (Opens RedeemPointsActivity)
+        if (btnRedeemPts != null) {
+            btnRedeemPts.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Reward.this, RedeemPointsActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
+
+        // --- ECOSHOP BANNER ---
+        View cardBanner = findViewById(R.id.card_banner);
+        if (cardBanner != null) {
+            cardBanner.setOnClickListener(v -> {
+                Intent intent = new Intent(Reward.this, EcoShopActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            });
+        }
+
+        // --- CHARITY CARD ---
         View card1 = findViewById(R.id.card1);
         if (card1 != null) {
             card1.setOnClickListener(v -> {
@@ -58,67 +98,61 @@ public class Reward extends AppCompatActivity {
             });
         }
 
-        // Suggestion Logic with Firebase Push
+        // --- SUGGESTION LOGIC ---
         if (btnSendSuggestion != null) {
             btnSendSuggestion.setOnClickListener(v -> {
                 String suggestionText = editSuggestion.getText().toString().trim();
+                if (!suggestionText.isEmpty() && userId != null) {
+                    String suggestionId = suggestionsRef.push().getKey();
+                    Map<String, Object> suggestionData = new HashMap<>();
+                    suggestionData.put("text", suggestionText);
+                    suggestionData.put("timestamp", System.currentTimeMillis());
 
-                if (!suggestionText.isEmpty()) {
-                    if (userId != null) {
-                        // Create a unique key for each suggestion
-                        String suggestionId = suggestionsRef.push().getKey();
-
-                        // Prepare the data
-                        Map<String, Object> suggestionData = new HashMap<>();
-                        suggestionData.put("text", suggestionText);
-                        suggestionData.put("timestamp", System.currentTimeMillis());
-
-                        // Save to Firebase: suggestions -> userId -> uniqueID
-                        suggestionsRef.child(suggestionId).setValue(suggestionData)
-                                .addOnSuccessListener(aVoid -> {
-                                    Toast.makeText(Reward.this, "Suggestion sent! Thank you.", Toast.LENGTH_SHORT).show();
-                                    editSuggestion.setText("");
-                                    hideKeyboard(v);
-                                })
-                                .addOnFailureListener(e -> {
-                                    Toast.makeText(Reward.this, "Failed to send. Try again.", Toast.LENGTH_SHORT).show();
-                                });
-                    }
-                } else {
-                    Toast.makeText(Reward.this, "Please enter a suggestion first", Toast.LENGTH_SHORT).show();
+                    suggestionsRef.child(suggestionId).setValue(suggestionData)
+                            .addOnSuccessListener(aVoid -> {
+                                Toast.makeText(Reward.this, "Suggestion sent!", Toast.LENGTH_SHORT).show();
+                                editSuggestion.setText("");
+                                hideKeyboard(v);
+                            });
                 }
             });
         }
 
-        // Footer Navigation
         setupFooterNavigation();
 
         // Firebase Setup
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
             databaseRef = FirebaseDatabase.getInstance(DB_URL).getReference("users").child(userId);
-            // Initialize suggestions reference
             suggestionsRef = FirebaseDatabase.getInstance(DB_URL).getReference("suggestions").child(userId);
-
-            loadTailpointsData();
-        } else {
-            taliPointsTextView.setText("0");
+            loadUserData();
         }
     }
 
-    private void loadTailpointsData() {
+    private void loadUserData() {
         databaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
+                    // Update Points
                     Integer taliValue = dataSnapshot.child("taliPoints").getValue(Integer.class);
-                    taliPointsTextView.setText(taliValue != null ? String.valueOf(taliValue) : "0");
+                    if (taliPointsTextView != null) {
+                        taliPointsTextView.setText(taliValue != null ? String.valueOf(taliValue) : "0");
+                    }
+
+                    // Update Wallet Balance inside the btnWallet text child
+                    Double walletValue = dataSnapshot.child("walletBalance").getValue(Double.class);
+                    if (btnWallet != null) {
+                        // Find the TextView inside the LinearLayout
+                        TextView tvWallet = (TextView) btnWallet.getChildAt(1);
+                        if (tvWallet != null) {
+                            tvWallet.setText(walletValue != null ? String.format("RM %.2f", walletValue) : "RM 0.00");
+                        }
+                    }
                 }
             }
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.e("Firebase", "Error: " + databaseError.getMessage());
-            }
+            public void onCancelled(@NonNull DatabaseError databaseError) {}
         });
     }
 
@@ -127,17 +161,17 @@ public class Reward extends AppCompatActivity {
         ImageView search = findViewById(R.id.search);
         ImageView progress = findViewById(R.id.progress);
         ImageView connect = findViewById(R.id.connect);
+        ImageView reward = findViewById(R.id.reward);
 
         if (home != null) home.setOnClickListener(v -> startActivity(new Intent(this, Main1.class)));
         if (search != null) search.setOnClickListener(v -> startActivity(new Intent(this, SearchActivity.class)));
         if (progress != null) progress.setOnClickListener(v -> startActivity(new Intent(this, Progress.class)));
         if (connect != null) connect.setOnClickListener(v -> startActivity(new Intent(this, connect.class)));
+        // Current page is Reward, no action needed
     }
 
     private void hideKeyboard(View view) {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (imm != null) {
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
+        if (imm != null) imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

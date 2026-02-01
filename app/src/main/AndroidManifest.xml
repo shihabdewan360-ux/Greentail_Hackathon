@@ -64,6 +64,13 @@
         <activity android:name=".ReforestDone" android:exported="false" />
         <activity android:name=".Habit" android:exported="false" />
 
+        <activity android:name=".EcoShopActivity" android:exported="false" />
+        <activity android:name=".BrandDetailActivity" android:exported="false" />
+
+        <activity android:name=".RedeemPointsActivity" android:exported="false" />
+        <activity android:name=".PayActivity" android:exported="false" />
+        <activity android:name=".RedemptionDoneActivity" android:exported="false" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
