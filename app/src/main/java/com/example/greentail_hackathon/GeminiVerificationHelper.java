@@ -19,7 +19,7 @@ public class GeminiVerificationHelper {
     private static final String TAG = "GeminiVerify";
 
     // TODO: Ensure this key has no spaces and the "Generative Language API" is enabled in Cloud Console
-    private static final String API_KEY = "AIzaSyAkM9FhgNe7PKYb1trWr9ehFRi8VmHB1-E";
+    private static final String API_KEY = "GEMINI_API_KEY=your_actual_key_here";
 
     private final GenerativeModelFutures model;
     private final Executor executor;
